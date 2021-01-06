@@ -1,35 +1,41 @@
 let modalOpen = document.querySelector('.open-modal')
 let parent = document.querySelector('.navbar')
-let modalClose = document.querySelector('.close')
 
 function modalWindow() {
     const modal = document.createElement('div')
     modal.classList.add('modal-overlay')
     modal.insertAdjacentHTML('afterbegin', `
             <div class="modal-window">
-                <div class="modal-title"><p>Модальное окно</p><img class="close" src="img/close.svg" alt=""></div>
+                <div class="modal-title"><p>Модальное окно</p><img class="close" src="img/close.svg" alt="" data-close="true"></div>
                 <div class="modal-body"></div>
                 <div class="modal-footer">
-                    <button class="close btn btn-success">Закрыть</button>
+                    <button class=" btn btn-success" data-close="true">Закрыть</button>
                 </div>
-            </div>       
+            </div> 
     `)
-    console.log('click')
     document.body.insertBefore(modal, parent)
+    modal.setAttribute('data-close', true)
+    modal.addEventListener('click', listener)
+
     return modal
 }
 
-let modal = {
+let modalAction = {
     open() {
         return modalWindow()
     },
     close() {
-        let element = document.querySelector('.modal-overlay')
-        element.parentNode.removeChild(element)
+        document.querySelector('.modal-overlay').remove()
     }
 }
 
-modalOpen.addEventListener('click', modal.open)
-modalClose.addEventListener('click', modal.close)
+let listener = event => {
+    if (event.target.dataset.close) {
+        modalAction.close()
+    }
+}
+
+modalOpen.addEventListener('click', modalAction.open)
+
 
 
