@@ -1,15 +1,22 @@
 let modalOpen = document.querySelector('.open-modal')
 let parent = document.querySelector('.navbar')
 
+function modalParam() {
+    if(param.iconClose === false) {
+        document.querySelector('.close').remove()
+    }
+    return modal
+}
+
 function modalWindow() {
     const modal = document.createElement('div')
     modal.classList.add('modal-overlay')
     modal.insertAdjacentHTML('afterbegin', `
-            <div class="modal-window">
-                <div class="modal-title"><p>Модальное окно</p><img class="close" src="img/close.svg" alt="" data-close="true"></div>
-                <div class="modal-body"></div>
+            <div style="width: ${param.width}; height: ${param.height}" class="modal-window animate__animated animate__backInDown">
+                <div class="modal-title"><p><b>${param.title}</b></p><img class="close" src="img/close.svg" alt="" data-close="true"></div>
+                <div class="modal-body"><p>${param.content}</p></div>
                 <div class="modal-footer">
-                    <button class=" btn btn-success" data-close="true">Закрыть</button>
+                    <button class=" btn btn-${param.button}" data-close="true">Закрыть</button>
                 </div>
             </div> 
     `)
@@ -17,7 +24,7 @@ function modalWindow() {
     modal.setAttribute('data-close', true)
     modal.addEventListener('click', listener)
 
-    return modal
+    return modalParam()
 }
 
 let modalAction = {
@@ -34,6 +41,7 @@ let listener = event => {
         modalAction.close()
     }
 }
+
 
 modalOpen.addEventListener('click', modalAction.open)
 
