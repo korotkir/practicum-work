@@ -1,0 +1,45 @@
+#viewport {
+  width: 100vw;
+  height: 93vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slider-nav {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+.navigation {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider {
+  position: relative;
+  width: calc(100% * 5);
+  height: inherit;
+  display: flex;
+  justify-content: start;
+  flex-wrap: nowrap;
+  transition: 500ms;
+}
+
+.slide {
+  width: 100%;
+  height: inherit;
+}
+
+.slide img {
+  width: 100%;
+  height: inherit;
+  object-fit: fill;
+  object-position: 0;
+}
+
+/*# sourceMappingURL=slider.css.map */
