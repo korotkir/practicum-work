@@ -1,6 +1,6 @@
 // settings for modal window
 
-let param = {
+let modalSettings = {
     width: '40%',
     height: '70%',
     title: 'Заголовок',
@@ -8,3 +8,4 @@ let param = {
     iconClose: true,
     button: 'danger', // bootstrap button
 }
+

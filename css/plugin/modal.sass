@@ -1,9 +1,12 @@
 // modal start
+p
+  margin: 0
+  padding: 0
 
 .modal-overlay,
 .modal-window
   opacity: 1
-  z-index: 3000
+  z-index: 10000
 
 .modal-overlay
   position: fixed
@@ -20,12 +23,14 @@
   border-radius: 5px
   background: white
   opacity: 1
+  color: black
 //width: 50%
 //height: 80%
 
 .modal-title
   display: flex
   justify-content: space-between
+  align-items: center
   border-bottom: 1px solid lightgray
   padding: 20px
 
@@ -34,6 +39,6 @@
 
 .modal-footer
   display: flex
-  justify-content: space-between
+  justify-content: flex-end
 
 // modal end
