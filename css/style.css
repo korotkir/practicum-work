@@ -20,7 +20,7 @@ body {
 .absolute-container {
   position: absolute;
   z-index: 9000;
-  width: 80%;
+  width: 60%;
   height: 93vh;
 }
 
