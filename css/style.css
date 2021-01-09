@@ -7,21 +7,34 @@ body {
   color: white;
 }
 
-.open-modal {
-  margin-top: 50vh;
-}
-
 .navbar {
   height: 7vh;
 }
 
-.hello {
-  padding: 100px;
+.flex-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.absolute-container {
+  position: absolute;
+  z-index: 9000;
+  width: 80%;
+  height: 93vh;
+}
+
+.center-window {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+  padding: 10vh;
 }
 
 /*# sourceMappingURL=style.css.map */

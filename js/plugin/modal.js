@@ -1,4 +1,4 @@
-let modalOpen = document.querySelector('.open-modal')
+let modalOpen = document.getElementById('btn-open-modal')
 let parent = document.querySelector('.navbar')
 
 function modalParam() {

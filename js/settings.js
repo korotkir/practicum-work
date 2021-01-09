@@ -9,3 +9,9 @@ let modalSettings = {
     button: 'danger', // bootstrap button
 }
 
+let sliderSettings = {
+    working: true,
+    image: null,
+    controlButton: true,
+    interval: '3s',
+}
