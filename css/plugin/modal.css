@@ -1,7 +1,7 @@
 .modal-overlay,
 .modal-window {
   opacity: 1;
-  z-index: 1000;
+  z-index: 3000;
 }
 
 .modal-overlay {
