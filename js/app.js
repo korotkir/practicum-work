@@ -1,3 +1,3 @@
-console.log('worked')
-
-const $ = {}
+// function background() {
+//
+// }

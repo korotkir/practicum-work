@@ -1,12 +1,21 @@
-let modalOpen = document.getElementById('btn-open-modal')
-let parent = document.querySelector('.navbar')
+// Modal window plugin
 
-function modalParam() {
-    if(modalSettings.iconClose === false) {
-        document.querySelector('.close').remove()
-    }
+let parentModal = document.querySelector('.navbar')
+let afterButton = document.querySelector('.down')
+let parentButton = document.querySelector('.center-window')
+
+
+// Сalls the call button of the modal window
+function modalButton() {
+        const button = document.createElement('button')
+        button.id = 'btn-open-modal'
+        button.classList.add('btn','btn-primary','btn-lg')
+        button.innerHTML = 'Информация'
+        parentButton.insertBefore(button, afterButton)
+        return button
 }
 
+// Return Modal window
 function modalWindow() {
     const modal = document.createElement('div')
     modal.classList.add('modal-overlay')
@@ -19,14 +28,24 @@ function modalWindow() {
                 </div>
             </div> 
     `)
-    document.body.insertBefore(modal, parent)
+    document.body.insertBefore(modal, parentModal)
     modal.setAttribute('data-close', true)
     modal.addEventListener('click', listener)
 
-    modalParam()
+    iconClose()
     return modal
 }
 
+// Settings block
+
+// Working
+function working() {
+    if (modalSettings.working === true) {
+        modalButton().addEventListener('click', modalAction.open)
+    }
+}
+
+// Opening and closing
 let modalAction = {
     open() {
         return modalWindow()
@@ -36,14 +55,24 @@ let modalAction = {
     }
 }
 
+// Closing by attribute - "close"
 let listener = event => {
     if (event.target.dataset.close) {
         modalAction.close()
     }
 }
 
+// Settings for close icon
+function iconClose() {
+    if(modalSettings.iconClose === false) {
+        document.querySelector('.close').remove()
+    }
+}
 
-modalOpen.addEventListener('click', modalAction.open)
+
+working()
+
+
 
 
 

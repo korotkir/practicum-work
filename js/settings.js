@@ -1,6 +1,12 @@
 // settings for modal window
 
+// let settings = {
+//     background: 'img/carousel/3.jpg', // if Slider not working
+// }
+
+
 let modalSettings = {
+    working: true,
     width: '40%',
     height: '70%',
     title: 'Заголовок',
@@ -11,7 +17,7 @@ let modalSettings = {
 
 let sliderSettings = {
     working: true,
-    image: null,
+    image: ['img/carousel/1.jpg','img/carousel/2.jpg','img/carousel/3.jpg','img/carousel/4.jpg'],
     controlButton: true,
     interval: '3s',
 }
