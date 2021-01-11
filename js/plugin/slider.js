@@ -1,3 +1,6 @@
+// Photo slider plugin
+
+// Generation
 function sliderWorking() {
     let sliderWindow = document.createElement('div')
     let parentForSlider = document.querySelector('.flex-container')
@@ -16,10 +19,7 @@ function sliderWorking() {
                 </div>
             </div>
             <div class="slider" style="left: 0px">
-                <div class="slide"><img src="img/carousel/1.jpg" alt=""></div>
-                <div class="slide"><img src="img/carousel/2.jpg" alt=""></div>
-                <div class="slide"><img src="img/carousel/3.jpg" alt=""></div>
-                <div class="slide"><img src="img/carousel/4.jpg" alt=""></div>
+                
             </div>
             `)
     document.body.insertBefore(sliderWindow, parentForSlider.nextSibling)
@@ -27,6 +27,7 @@ function sliderWorking() {
 }
 
 
+// Left and right buttons, interval and other settings
 function settings() {
     sliderWorking()
 
@@ -35,11 +36,12 @@ function settings() {
     let slidePosition = 0
 
     let nextSlide = () => {
-        if (slidePosition < 3) {
+        if (slidePosition < sliderSettings.image.length - 1) {
             slidePosition++
         } else {
             slidePosition = 0
         }
+
         slider.style.left = -slidePosition * viewport + 'px'
     }
 
@@ -47,27 +49,58 @@ function settings() {
         if (slidePosition > 0) {
             slidePosition--
         } else {
-            slidePosition = 3
+            slidePosition = sliderSettings.image.length - 1
         }
+
         slider.style.left = -slidePosition * viewport + 'px'
     }
 
-    setInterval(nextSlide, 3000)
+    let sliderInterval = setInterval(nextSlide, sliderSettings.interval)
 
     let leftSlide = document.querySelector('.leftSlide')
     let rightSlide = document.querySelector('.rightSlide')
 
-    leftSlide.addEventListener('click', previousSlide)
-    rightSlide.addEventListener('click', nextSlide)
+    leftSlide.addEventListener('click', () => {
+        previousSlide()
+        clearInterval(sliderInterval)
+    })
+    rightSlide.addEventListener('click', () => {
+        nextSlide()
+        clearInterval(sliderInterval)
+    })
 }
 
+
+// For settings.js
 function worked() {
     if (sliderSettings.working === true) {
-        return settings()
+        settings()
+    } else {
+        background()
+    }
+    if (sliderSettings.controlButton === false) {
+        document.querySelector('.leftSlide').remove()
+        document.querySelector('.rightSlide').remove()
     }
 }
 
 worked()
+
+// Images for the slider are loaded from settings.js
+function images() {
+    if (sliderSettings.working === true) {
+        let slider = document.querySelector('.slider')
+        slider.style.cssText = `width: calc(100% * ${sliderSettings.image.length}); transition: ${sliderSettings.speed};`
+        let image = []
+        for (i = 0; i < sliderSettings.image.length; i++) {
+            image[i] = `<div class="slide"><img src="${sliderSettings.image[i]}"></div>`
+            console.table(image)
+            slider.innerHTML = image.join('')
+        }
+    }
+}
+
+images()
 
 
 

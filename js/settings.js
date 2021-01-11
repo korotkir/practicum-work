@@ -1,9 +1,12 @@
 // settings for modal window
 
-// let settings = {
-//     background: 'img/carousel/3.jpg', // if Slider not working
-// }
-
+let appSettings = {
+    background: 'img/carousel/1.jpg', // if Slider working = false
+    title: 'Добро пожаловать!',
+    description: 'Какой-то рекламный текст, чтобы ты повелся!',
+    color: 'white',
+    downIcon: true,
+}
 
 let modalSettings = {
     working: true,
@@ -17,7 +20,15 @@ let modalSettings = {
 
 let sliderSettings = {
     working: true,
-    image: ['img/carousel/1.jpg','img/carousel/2.jpg','img/carousel/3.jpg','img/carousel/4.jpg'],
+    image: [
+        'img/carousel/1.jpg',
+        'img/carousel/2.jpg',
+        'img/carousel/3.jpg',
+        'img/carousel/4.jpg',
+        'img/carousel/5.jpg',
+        'img/carousel/6.jpg',
+    ],
+    speed: '1s', // (ms,s), default: '1s'
     controlButton: true,
-    interval: '3s',
+    interval: 3000, // (ms), default: 3000
 }
